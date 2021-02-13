@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 
-* {
-  box-sizing: border-box;
-}
-
 html,
 body {
   margin: 0;
@@ -14,13 +10,34 @@ body {
 body {
   padding: 0 15px;
 
-  font-family: "Kumbh Sans";
-  background: hsl(185, 75%, 39%);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  font-family: "Kumbh Sans";
+  background: hsl(185, 75%, 39%);
+}
+body::before, body::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+body::before {
+  left: -50%;
+  top: -50%;
+  background-image: url("./img/bg-pattern-top.svg");
+}
+body::after {
+  z-index: -1;
+  right: -50%;
+  bottom: -50%;
+  background-image: url("./img/bg-pattern-bottom.svg");
 }
 
 .profile-card {
@@ -44,10 +61,11 @@ body {
 }
 .profile-card::before {
   content: "";
-  position: absolute;
 
   width: 100%;
   height: 130px;
+
+  position: absolute;  
 
   display: block;
 
@@ -62,7 +80,6 @@ body {
 .profile-card__user-avatar img {
   height: 100px;
   display: block;
-
   border: 4px solid white;
   border-radius: 100px;
   background: white;
@@ -90,10 +107,9 @@ body {
 
 .profile-card__user-social {
   margin-top: 22px;
+  padding: 25px 0;
 
   width: 100%;
-
-  padding: 25px 0;
 
   display: flex;
   justify-content: space-evenly;
